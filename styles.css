@@ -109,8 +109,26 @@ body.dark {
     }
   }
 
-  .canvas-panel {
-    background-color: #242B4D;
+  .main {
+    .canvas-panel {
+      background-color: #242B4D;
+    }
+    .editor-panel {
+      h2 {
+        background-color: #2E3766;
+        color: #EDEFFA;
+      }
+      .ribbon {
+        h3 {
+          background-color: #4A5694;
+          color: #DCE2FF;
+        }
+        div {
+          background-color: #2E3766;
+          color: #C6CCEE;
+        }
+      }
+    }
   }
 
   footer {
