@@ -32,7 +32,7 @@ header {
   ul {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 32px;
 
     margin: 0.55em 0;
     padding: 0;
@@ -84,7 +84,7 @@ header {
     min-width: 320px;
     padding: 8px;
 
-    #canvas {
+    .canvas {
       flex: 0 1 960px;
 
       aspect-ratio: 1 / 1;
@@ -173,7 +173,7 @@ body.dark {
   .main {
     .canvas-panel {
       background-color: #1A1F33;
-      #canvas {
+      .canvas {
         background-color: #FFFFFF;
       }
     }
@@ -229,7 +229,7 @@ body.light {
   .main {
     .canvas-panel {
       background-color: #FBEFF3;
-      #canvas {
+      .canvas {
         background-color: #FFFFFF;
       }
     }
