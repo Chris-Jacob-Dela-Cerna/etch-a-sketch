@@ -49,15 +49,17 @@ header {
 
       border: 2px solid #535870;
       border-radius: 18px;
+      cursor: pointer;
       padding: 4px 12px 4px 8px;
 
       img {
         border: 2px solid #535870;
         border-radius: 18px;
-        padding: 4px;
+        padding: 3px;
       }
 
       p {
+        font-weight: 500;
         margin: 0;
       }
     }
@@ -164,8 +166,18 @@ body.dark {
       color: #5b81ff;
     }
     .theme-switch {
+      background-color: #2d3552;
+      img {
+        background-color: #1d2145;
+      }
       p {
-        color: #aab7e1;
+        color: #c1cceb;
+      }
+    }
+    .theme-switch:hover {
+      background-color: #272d42;
+      p {
+        color: #aebde8;
       }
     }
   }
@@ -220,8 +232,18 @@ body.light {
       color: #953661;
     }
     .theme-switch {
+      background-color: #fdf0f8;
+      img {
+        background-color: #F3D9E4;
+      }
       p {
-        color: #C24A80;
+        color: #d35890;
+      }
+    }
+    .theme-switch:hover {
+      background-color: #e9d8e2;
+      p {
+        color: #ab517a;
       }
     }
   }
