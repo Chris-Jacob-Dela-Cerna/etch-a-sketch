@@ -24,15 +24,11 @@ header {
   padding: 0 2vw;
 
   h1 {
-    border: 1px dotted grey;
-
     font-size: 22px;
     margin: 0.55em 0;
   }
 
   ul {
-    border: 1px dotted grey;
-
     display: flex;
     gap: 16px;
 
@@ -72,9 +68,25 @@ header {
   }
 
   .editor-panel {
-    border: 1px dotted grey;
-
     flex: 1 1 200px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      padding: 4px 10px;
+    }
+
+    .ribbon {
+      h3 {
+        font-weight: 600;
+        margin: 0;
+        padding: 4px 10px;
+      }
+      div {
+        padding: 12px;
+      }
+    }
   }
 }
 
@@ -86,10 +98,8 @@ footer {
   justify-content: center;
 
   p {
-    border: 1px dotted grey;
-
     font-size: 14px;
-    margin: 0.7em 0;
+    margin: 1em 0;
   }
 }
 
@@ -97,44 +107,44 @@ footer {
 
 body.dark {
   header {
-    background-color: #1C2340;
+    background-color: #12152F;
     h1 {
-      color: #EDEFFA;
+      color: #E9EBF5;
     }
     a {
-      color: #8FA6FF;
+      color: #7C9CFF;
     }
     a:hover {
-      color: #B3C2FF;
+      color: #9DB4FF;
     }
   }
 
   .main {
     .canvas-panel {
-      background-color: #242B4D;
+      background-color: #1A1F33;
     }
     .editor-panel {
       h2 {
-        background-color: #2E3766;
-        color: #EDEFFA;
+        background-color: #20263D;
+        color: #E9EBF5;
       }
       .ribbon {
         h3 {
-          background-color: #4A5694;
-          color: #DCE2FF;
+          background-color: #2B3352;
+          color: #C7CEEA;
         }
         div {
-          background-color: #2E3766;
-          color: #C6CCEE;
+          background-color: #20263D;
+          color: #9AA3C4;
         }
       }
     }
   }
 
   footer {
-    background-color: #1C2340;
+    background-color: #12152F;
     p {
-      color: #8B93BE;
+      color: #5C5682;
     }
   }
 }
