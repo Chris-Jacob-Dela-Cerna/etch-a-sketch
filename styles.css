@@ -141,6 +141,23 @@ header {
       }
     }
 
+    #toolbox-settings {
+      div {
+        display: flex;
+        flex-wrap: wrap;
+
+        button {
+          flex: 0 1 46px;
+
+          aspect-ratio: 1 / 1;
+          border-radius: 14px;
+          max-height: 46px;
+          max-width: 46px;
+          padding: 0;
+        }
+      }
+    }
+
     #canvas-settings {
       div {
         div {
@@ -197,7 +214,7 @@ footer {
 
   p {
     font-size: 14px;
-    margin: 1em 0;
+    margin: 1.2em 0;
   }
 }
 
@@ -239,7 +256,7 @@ body.dark {
       background-color: #1A1F33;
       .canvas {
         background-color: #1A1F33;
-        box-shadow: 1px 1px 16px rgba(83, 80, 255, 0.6);
+        box-shadow: 1px 1px 16px rgba(83, 80, 255, 0.7);
       }
     }
     .editor-panel {
@@ -257,6 +274,16 @@ body.dark {
           color: #9AA3C4;
         }
       }
+    #toolbox-settings {
+      div {
+        button {
+          background-color: #cec7e6;
+        }
+        button:hover {
+          background-color: #FFFFFF;
+        }
+      }
+    }
       #canvas-settings {
         div {
           input:focus {
@@ -313,7 +340,7 @@ body.light {
       background-color: #FBEFF3;
       .canvas {
         background-color: #FBEFF3;
-        box-shadow: 1px 1px 16px rgba(162, 72, 159, 0.6);
+        box-shadow: 1px 1px 16px rgba(162, 72, 159, 0.7);
       }
     }
     .editor-panel {
@@ -331,6 +358,16 @@ body.light {
           color: #6E5560;
         }
       }
+    #toolbox-settings {
+      div {
+        button {
+          background-color: #FFFFFF;
+        }
+        button:hover {
+          background-color: #ebd4e8;
+        }
+      }
+    }
       #canvas-settings {
         div {
           input:focus {

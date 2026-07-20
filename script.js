@@ -12,8 +12,8 @@ const themeSwitch = document.querySelector(".theme-switch");
 
 //  ---  Configuration  ---
 
-const maxGridSize = 100;
 const defaultGridSize = 16;
+const maxGridSize = 100;
 
 
 
@@ -25,12 +25,12 @@ themeSwitch.addEventListener("click", function() {
   if (bodyTag.classList.contains("dark")) {
     themeSwitch.appendChild(themeInfo);
     themeSwitch.style["padding"] = "4px 12px 4px 8px";
-    themeIcon.setAttribute("src", "img/dark_mode_icon.png");
+    themeIcon.setAttribute("src", "img/dark_theme_icon.png");
     themeInfo.textContent = "Dark";
   } else {
     themeSwitch.appendChild(themeIcon);
     themeSwitch.style["padding"] = "4px 8px 4px 12px";
-    themeIcon.setAttribute("src", "img/light_mode_icon.png");
+    themeIcon.setAttribute("src", "img/light_theme_icon.png");
     themeInfo.textContent = "Light";
   };
 });
@@ -60,15 +60,15 @@ function renderCanvas(GridSize) {
 inputCanvasSize.addEventListener("keydown", function(event) {
   if (event.key !== "Enter") return;
 
-  const userInput = inputCanvasSize.value.trim()
+  const userInput = inputCanvasSize.value.trim();
   if (userInput === "") return;
 
   const sizeInput = Number(userInput)
   if (!Number.isInteger(sizeInput) || sizeInput < 1 || sizeInput > maxGridSize) return;
 
-  inputCanvasSize.value = ""
-  GridSize = sizeInput
-  renderCanvas(GridSize)
+  inputCanvasSize.value = "";
+  GridSize = sizeInput;
+  renderCanvas(GridSize);
 });
 
 
