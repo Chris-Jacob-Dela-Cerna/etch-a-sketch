@@ -87,9 +87,18 @@ header {
     padding: 8px;
 
     .canvas {
+      display: flex;
       flex: 0 1 960px;
+      flex-wrap: wrap;
 
       aspect-ratio: 1 / 1;
+
+      div {
+        border: 1px solid rgb(232, 232, 232);
+
+        aspect-ratio: 1 / 1;
+        background-color: white;
+      }
     }
   }
 
@@ -186,8 +195,8 @@ body.dark {
     .canvas-panel {
       background-color: #1A1F33;
       .canvas {
-        background-color: #FFFFFF;
-        box-shadow: 1px 1px 16px rgba(83, 80, 255, 0.8);
+        background-color: #1A1F33;
+        box-shadow: 1px 1px 16px rgba(83, 80, 255, 0.6);
       }
     }
     .editor-panel {
@@ -253,8 +262,8 @@ body.light {
     .canvas-panel {
       background-color: #FBEFF3;
       .canvas {
-        background-color: #FFFFFF;
-        box-shadow: 1px 1px 16px rgba(98, 46, 96, 0.7);
+        background-color: #FBEFF3;
+        box-shadow: 1px 1px 16px rgba(162, 72, 159, 0.6);
       }
     }
     .editor-panel {
