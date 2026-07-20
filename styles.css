@@ -47,7 +47,7 @@ header {
       flex-direction: row;
       gap: 8px;
 
-      border: 2px solid #535870;
+      border: 2px solid #848aa6;
       border-radius: 24px;
       cursor: pointer;
       padding: 4px 12px 4px 8px;
@@ -137,11 +137,32 @@ header {
       div {
         flex: 1 0 0;
 
-        padding: 30px;
+        padding: 20px 30px;
+      }
+    }
+
+    #canvas-settings {
+      form {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        input {
+          border: 1px solid #848aa6;
+          border-radius: 15px;
+          height: 1.8em; 
+          text-align: center;
+          width: 6em;
+        }
+        input:focus {
+          border: 3px solid #819eff;
+          outline: 1px solid #FFFFFF;
+        }
       }
     }
   }
 }
+
 
 
 footer {

@@ -35,7 +35,7 @@ themeSwitch.addEventListener("click", function() {
 
 //  ---  Canvas  ---
 
-function renderCanvas(GridSize = ) {
+function renderCanvas(GridSize = defaultGridSize) {
   const totalSquares = GridSize * GridSize;
   const gridRatio = 100 / GridSize;
   const canvas = document.querySelector(".canvas");
@@ -49,6 +49,6 @@ function renderCanvas(GridSize = ) {
 
 
 
-// ---  Initialization  ---
+//  ---  Initialization  ---
 
 renderCanvas()
