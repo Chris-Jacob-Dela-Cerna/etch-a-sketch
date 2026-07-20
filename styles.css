@@ -144,19 +144,37 @@ header {
     #canvas-settings {
       form {
         display: flex;
-        align-items: center;
         gap: 12px;
 
-        input {
-          border: 1px solid #848aa6;
-          border-radius: 15px;
-          height: 1.8em; 
-          text-align: center;
-          width: 6em;
+        label {
+          padding-top: 2px;
         }
-        input:focus {
-          border: 3px solid #819eff;
-          outline: 1px solid #FFFFFF;
+        
+        div {
+          display: flex;
+          flex: 0 0 auto;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
+
+          padding: 0;
+
+          input {
+            border: 1px solid #848aa6;
+            border-radius: 15px;
+            height: 1.8em; 
+            text-align: center;
+            width: 7em;
+          }
+          input:focus {
+            border: 3px solid #819eff;
+            outline: 1px solid #FFFFFF;
+          }
+
+          p {
+            font-size: 0.8em;
+            margin: 0;
+          }
         }
       }
     }
@@ -300,6 +318,13 @@ body.light {
         div {
           background-color: #F6E3EB;
           color: #6E5560;
+        }
+      }
+      #canvas-settings {
+        form {
+          input:focus {
+            border: 3px solid #e599e1;
+          }
         }
       }
     }
