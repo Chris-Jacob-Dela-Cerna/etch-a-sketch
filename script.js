@@ -62,24 +62,24 @@ function renderCanvas(gridSize) {
 
 //  --- Toolbox  ---
 
+function toggleTool(tool) {
+  if (activeTool !== tool) {
+    activeTool = tool
+  } else activeTool = null
+}
+
 tools.addEventListener("click", (event) => {
   const target = event.target
   if (target.tagName !== "BUTTON") return;
 
   switch (target.id) {
     case "pen":
-      if (activeTool !== "pen") {
-        activeTool = "pen"
-      } else activeTool = null
+      toggleTool(target.id)
       break;
     case "eraser":
-      if (activeTool !== "eraser") {
-        activeTool = "eraser"
-      } else activeTool = null
+      toggleTool(target.id)
       break;
   };
-
-  console.log(activeTool)
 });
 
 
