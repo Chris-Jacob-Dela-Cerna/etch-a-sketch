@@ -1,7 +1,7 @@
 //  ---  DOM References  ---
 
 const bodyTag = document.querySelector("body");
-const canvas = document.querySelector(".canvas");
+const canvas = document.getElementById("canvas");
 const currentCanvasSize = document.getElementById("current-canvas-size")
 const inputCanvasSize = document.getElementById("canvas-size");
 const themeIcon = document.getElementById("theme-icon");
@@ -13,13 +13,14 @@ const toolBoxTools = document.getElementById("tools");
 
 
 
-//  ---  Configuration  ---
+//  ---  Configs and Globals  ---
 
+const allToolsDOM = [toolBoxPen, toolBoxEraser]
 const defaultGridSize = 16;
 const maxGridSize = 100;
-const allTools = [toolBoxPen, toolBoxEraser]
 
 let activeTool = null;
+let canvasMouseDown = false
 let gridSize = defaultGridSize;
 
 
@@ -47,19 +48,24 @@ themeSwitch.addEventListener("click", function() {
 //  ---  Canvas  ---
 
 function renderCanvas(gridSize) {
-  currentCanvasSize.textContent = `Current: ${gridSize}`;
   canvas.replaceChildren();
 
   const totalSquares = gridSize * gridSize;
   const gridRatio = 100 / gridSize;
-
   for (let i = 0; i < totalSquares; i++) {
     const square = document.createElement("div");
     square.style["flex"] = `1 1 ${gridRatio}%`;
     canvas.appendChild(square);
   };
+
+  currentCanvasSize.textContent = `Current: ${gridSize}`;
 };
 
+canvas.addEventListener("mousedown", () => canvasMouseDown = true);
+canvas.addEventListener("mouseup", () => canvasMouseDown = false);
+canvas.addEventListener("mousemove", (event) => {
+  if (canvasMouseDown) event.target.style["background-color"] = "red";
+});
 
 
 //  --- Toolbox  ---
@@ -70,23 +76,23 @@ function toggleTool(tool) {
   } else activeTool = null;
 };
 
-function toolActiveDisplay(activeToolDOM, allTools) {
+function toolActiveDisplay(activeToolDOM, allToolsDOM) {
   activeToolDOM.classList.toggle("active")
-  allTools.filter(tool => tool !== activeToolDOM)
-          .forEach(otherTool => otherTool.classList.remove("active"));
+  allToolsDOM.filter(tool => tool !== activeToolDOM)
+             .forEach(otherTool => otherTool.classList.remove("active"));
 }
 
 toolBoxTools.addEventListener("click", event => {
   const target = event.target;
   if (target.tagName !== "BUTTON") return;
 
-  const targetTool = target.id
+  const targetTool = target.id;
   toggleTool(targetTool);
 
-  let activeToolDOM = null
+  let activeToolDOM = null;
   if (targetTool === "pen") activeToolDOM = toolBoxPen;
   else if (targetTool === "eraser") activeToolDOM = toolBoxEraser;
-  toolActiveDisplay(activeToolDOM, allTools)
+  toolActiveDisplay(activeToolDOM, allToolsDOM);
 });
 
 

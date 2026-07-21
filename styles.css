@@ -86,7 +86,7 @@ header {
     min-width: 320px;
     padding: 10px;
 
-    .canvas {
+    #canvas {
       display: flex;
       flex: 0 1 960px;
       flex-wrap: wrap;
@@ -94,8 +94,6 @@ header {
       aspect-ratio: 1 / 1;
 
       div {
-        border: 1px solid rgb(232, 232, 232);
-
         aspect-ratio: 1 / 1;
         background-color: white;
       }
@@ -260,7 +258,7 @@ body.dark {
   .main {
     .canvas-panel {
       background-color: #1A1F33;
-      .canvas {
+      #canvas {
         background-color: #1A1F33;
         box-shadow: 1px 1px 16px rgba(83, 80, 255, 0.7);
       }
@@ -352,7 +350,7 @@ body.light {
   .main {
     .canvas-panel {
       background-color: #FBEFF3;
-      .canvas {
+      #canvas {
         background-color: #FBEFF3;
         box-shadow: 1px 1px 16px rgba(162, 72, 159, 0.7);
       }
