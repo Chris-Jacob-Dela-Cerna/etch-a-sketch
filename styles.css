@@ -360,16 +360,16 @@ body.light {
           color: #6E5560;
         }
       }
-    #toolbox-settings {
-      div {
-        button {
-          background-color: #FFFFFF;
-        }
-        button:hover {
-          background-color: #ebd4e8;
+      #toolbox-settings {
+        div {
+          button {
+            background-color: #FFFFFF;
+          }
+          button:hover {
+            background-color: #ebd4e8;
+          }
         }
       }
-    }
       #canvas-settings {
         div {
           input:focus {

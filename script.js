@@ -15,6 +15,10 @@ const themeSwitch = document.querySelector(".theme-switch");
 const defaultGridSize = 16;
 const maxGridSize = 100;
 
+let gridSize = defaultGridSize;
+let useEraser = true;
+let usePencil = true;
+
 
 
 //  ---  Page Theme  ---
@@ -39,15 +43,12 @@ themeSwitch.addEventListener("click", function() {
 
 //  ---  Canvas  ---
 
-let GridSize = defaultGridSize;
+function renderCanvas(gridSize) {
+  currentCanvasSize.textContent = `Current = ${gridSize}`;
+  canvas.replaceChildren();
 
-
-function renderCanvas(GridSize) {
-  currentCanvasSize.textContent = `Current = ${GridSize}`
-  canvas.replaceChildren()
-
-  const totalSquares = GridSize * GridSize;
-  const gridRatio = 100 / GridSize;
+  const totalSquares = gridSize * gridSize;
+  const gridRatio = 100 / gridSize;
 
   for (let i = 0; i < totalSquares; i++) {
     const square = document.createElement("div");
@@ -57,7 +58,30 @@ function renderCanvas(GridSize) {
 }
 
 
-inputCanvasSize.addEventListener("keydown", function(event) {
+
+//  --- Toolbox  ---
+
+const pen = document.getElementById("pen");
+pen.addEventListener("click", (event) => {
+  if (usePencil === false) {
+    usePencil = true;
+    useEraser = false;
+  } else {
+    usePencil = false;
+  }
+  console.log("\nAfter:  " + usePencil)
+  console.log("After:  " + useEraser)
+});
+
+
+
+//  --- Color Palette ---
+
+
+
+//  ---  Canvas Settings  ---
+
+inputCanvasSize.addEventListener("keydown", (event) => {
   if (event.key !== "Enter") return;
 
   const userInput = inputCanvasSize.value.trim();
@@ -67,12 +91,12 @@ inputCanvasSize.addEventListener("keydown", function(event) {
   if (!Number.isInteger(sizeInput) || sizeInput < 1 || sizeInput > maxGridSize) return;
 
   inputCanvasSize.value = "";
-  GridSize = sizeInput;
-  renderCanvas(GridSize);
+  gridSize = sizeInput;
+  renderCanvas(gridSize);
 });
 
 
 
 //  ---  Initialization  ---
 
-renderCanvas(GridSize);
+renderCanvas(gridSize);
