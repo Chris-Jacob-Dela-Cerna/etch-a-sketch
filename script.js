@@ -7,7 +7,9 @@ const inputCanvasSize = document.getElementById("canvas-size");
 const themeIcon = document.getElementById("theme-icon");
 const themeInfo = document.getElementById("theme-info");
 const themeSwitch = document.querySelector(".theme-switch");
-const tools = document.getElementById("tools");
+const toolBoxEraser = document.getElementById("eraser");
+const toolBoxPen = document.getElementById("pen");
+const toolBoxTools = document.getElementById("tools");
 
 
 
@@ -15,10 +17,10 @@ const tools = document.getElementById("tools");
 
 const defaultGridSize = 16;
 const maxGridSize = 100;
+const allTools = [toolBoxPen, toolBoxEraser]
 
 let activeTool = null;
 let gridSize = defaultGridSize;
-
 
 
 
@@ -45,7 +47,7 @@ themeSwitch.addEventListener("click", function() {
 //  ---  Canvas  ---
 
 function renderCanvas(gridSize) {
-  currentCanvasSize.textContent = `Current = ${gridSize}`;
+  currentCanvasSize.textContent = `Current: ${gridSize}`;
   canvas.replaceChildren();
 
   const totalSquares = gridSize * gridSize;
@@ -56,7 +58,7 @@ function renderCanvas(gridSize) {
     square.style["flex"] = `1 1 ${gridRatio}%`;
     canvas.appendChild(square);
   };
-}
+};
 
 
 
@@ -64,22 +66,25 @@ function renderCanvas(gridSize) {
 
 function toggleTool(tool) {
   if (activeTool !== tool) {
-    activeTool = tool
-  } else activeTool = null
+    activeTool = tool;
+  } else activeTool = null;
+};
+
+function toolActiveDisplay(activeToolDOM, allTools) {
+  const otherTools = allTools.filter(tool => tool !== activeToolDOM)
+  activeToolDOM.classList.toggle("active")
+  otherTools.forEach(otherTool => otherTool.classList.remove("active"));
 }
 
-tools.addEventListener("click", (event) => {
-  const target = event.target
+toolBoxTools.addEventListener("click", event => {
+  const target = event.target;
   if (target.tagName !== "BUTTON") return;
 
-  switch (target.id) {
-    case "pen":
-      toggleTool(target.id)
-      break;
-    case "eraser":
-      toggleTool(target.id)
-      break;
-  };
+  toggleTool(target.id);
+  let activeToolDOM = null
+  if (activeTool === "pen") activeToolDOM = toolBoxPen;
+  else if (activeTool === "eraser") activeToolDOM = toolBoxEraser;
+  toolActiveDisplay(activeToolDOM, allTools)
 });
 
 
@@ -90,7 +95,7 @@ tools.addEventListener("click", (event) => {
 
 //  ---  Canvas Settings  ---
 
-inputCanvasSize.addEventListener("keydown", (event) => {
+inputCanvasSize.addEventListener("keydown", event => {
   if (event.key !== "Enter") return;
 
   const userInput = inputCanvasSize.value.trim();
