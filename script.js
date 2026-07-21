@@ -19,9 +19,16 @@ const toolBoxTools = document.getElementById("tools");
 
 const allToolsDOM = [toolBoxPen, toolBoxEraser];
 const colors = [
-  "#FFFFFF", "#F2F2F2", "#C0C0C0", "#4D4D4D",
-  "#1A1A1A", "#000000"
-];
+  "#FFFFFF", "#F2F2F2", "#C0C0C0", "#FFDBAC", 
+  "#F1C27D", "#D4A24C", "#C68642", "#FFCC00", 
+  "#CA8A04", "#A3D633", "#65A30D", "#34C759", 
+  "#166534", "#00C7B7", "#0F766E", "#007AFF", 
+  "#1E3A8A", "#0B1F3A", "#AF52DE", "#6B21A8", 
+  "#FF2D92", "#9D174D", "#FF3B30", "#B71C1C", 
+  "#FF9500", "#C2410C", "#8D5524", "#6B4423", 
+  "#808080", "#4D4D4D", "#1A1A1A", "#000000"
+]
+
 const defaultGridSize = 16;
 const maxGridSize = 100;
 
