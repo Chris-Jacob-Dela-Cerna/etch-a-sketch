@@ -280,20 +280,28 @@ body.dark {
           color: #9AA3C4;
         }
       }
-    #toolbox-settings {
-      div {
-        button {
-          background-color: #cec7e6;
-        }
-        button:hover {
-          background-color: #FFFFFF;
+      #toolbox-settings {
+        div {
+          button {
+            background-color: #cec7e6;
+          }
+          button:hover {
+            background-color: #FFFFFF;
+          }
+          .active {
+            background-color: #FFFFFF;
+            border: 4px solid #7C9CFF;
+            outline: 3px solid #cec7e6;
+          }
+          .active:hover {
+            background-color: #cec7e6;
+          }
         }
       }
-    }
       #canvas-settings {
         div {
           input:focus {
-            border: 3px solid #9cb7f4;
+            border: 3px solid #7C9CFF;
           }
         }
       }
@@ -372,12 +380,20 @@ body.light {
           button:hover {
             background-color: #ebd4e8;
           }
+          .active {
+            background-color: #ebd4e8;
+            border: 4px solid #C24A80;
+            outline: 3px solid #FFFFFF;
+          }
+          .active:hover {
+            background-color: #FFFFFF;
+          }
         }
       }
       #canvas-settings {
         div {
           input:focus {
-            border: 3px solid #e599e1;
+            border: 3px solid #C24A80;
           }
         }
       }
