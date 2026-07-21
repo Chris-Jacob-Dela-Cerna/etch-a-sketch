@@ -1,9 +1,11 @@
+
 //  ---  DOM References  ---
 
 const bodyTag = document.querySelector("body");
 const canvas = document.getElementById("canvas");
-const currentCanvasSize = document.getElementById("current-canvas-size")
+const currentCanvasSize = document.getElementById("current-canvas-size");
 const inputCanvasSize = document.getElementById("canvas-size");
+const palette = document.getElementById("palette");
 const themeIcon = document.getElementById("theme-icon");
 const themeInfo = document.getElementById("theme-info");
 const themeSwitch = document.querySelector(".theme-switch");
@@ -16,9 +18,14 @@ const toolBoxTools = document.getElementById("tools");
 //  ---  Configs and Globals  ---
 
 const allToolsDOM = [toolBoxPen, toolBoxEraser]
+const colors = [
+  "#FFFFFF", "#F2F2F2", "#C0C0C0", "#4D4D4D",
+  "#1A1A1A", "#000000"
+]
 const defaultGridSize = 16;
 const maxGridSize = 100;
 
+let activeColor = null;
 let activeTool = null;
 let canvasMouseDown = false;
 let eraserColor = "#FFFFFF";
@@ -117,6 +124,15 @@ toolBoxTools.addEventListener("click", event => {
 
 //  --- Color Palette ---
 
+function renderPalette() {
+  for (color of colors) {
+    const button = document.createElement("button")
+    button.style["background-color"] = color
+    palette.appendChild(button)
+  }
+
+}
+
 
 
 //  ---  Canvas Settings  ---
@@ -140,3 +156,4 @@ inputCanvasSize.addEventListener("keydown", event => {
 //  ---  Initialization  ---
 
 renderCanvas(gridSize);
+renderPalette(activeColor)
