@@ -29,7 +29,6 @@ let activeColor = "#000000";
 let activeTool = null;
 let canvasMouseDown = false;
 let eraserColor = "#FFFFFF";
-let penColor = activeColor;
 let gridSize = defaultGridSize;
 
 
@@ -83,7 +82,7 @@ function renderCanvas(gridSize) {
 function useTool(target) {
   switch (activeTool) {
     case "pen":
-      target.style["background-color"] = penColor;
+      target.style["background-color"] = activeColor;
       break;
     case "eraser":
       target.style["background-color"] = eraserColor;
@@ -141,9 +140,15 @@ function renderPalette() {
     if (color === activeColor) button.classList.toggle("active-color");
     palette.appendChild(button);
   }
-
-  // activeDisplay(activeColor, palette.children)
 }
+
+palette.addEventListener("click", event => {
+  const target = event.target;
+  if (target.tagName !== "BUTTON") return;
+
+  toggleColor(target.style.getPropertyValue("background-color"));
+  activeDisplay(target, Array.from(palette.children), "active-color");
+});
 
 
 
