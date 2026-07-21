@@ -158,6 +158,10 @@ header {
           max-height: 46px;
           max-width: 46px;
           padding: 0;
+
+          img {
+            pointer-events: none;
+          }
         }
       }
     }

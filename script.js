@@ -7,6 +7,7 @@ const inputCanvasSize = document.getElementById("canvas-size");
 const themeIcon = document.getElementById("theme-icon");
 const themeInfo = document.getElementById("theme-info");
 const themeSwitch = document.querySelector(".theme-switch");
+const tools = document.getElementById("tools");
 
 
 
@@ -16,8 +17,8 @@ const defaultGridSize = 16;
 const maxGridSize = 100;
 
 let gridSize = defaultGridSize;
-let useEraser = true;
-let usePencil = true;
+let useEraser = false;
+let usePencil = false;
 
 
 
@@ -61,16 +62,27 @@ function renderCanvas(gridSize) {
 
 //  --- Toolbox  ---
 
-const pen = document.getElementById("pen");
-pen.addEventListener("click", (event) => {
-  if (usePencil === false) {
-    usePencil = true;
-    useEraser = false;
-  } else {
-    usePencil = false;
-  }
-  console.log("\nAfter:  " + usePencil)
-  console.log("After:  " + useEraser)
+tools.addEventListener("click", (event) => {
+  const target = event.target
+  if (target.tagName !== "BUTTON") return;
+
+  switch (target.id) {
+    case "pen":
+      if (usePencil === false) {
+        usePencil = true;
+        useEraser = false;
+      } else usePencil = false;
+      break;
+    case "eraser":
+      if (useEraser === false) {
+        useEraser = true;
+        usePencil = false;
+      } else useEraser = false;
+      break;
+  };
+
+  console.log("pen: " + usePencil)
+  console.log("eraser: " + useEraser)
 });
 
 
